@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+
+class DetailCard extends StatelessWidget {
+  final String title, poster, publishedDate;
+  final double price, rating;
+  const DetailCard(
+      {Key key,
+      this.title,
+      this.poster,
+      this.price,
+      this.rating,
+      this.publishedDate})
+      : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // color: Colors.black,
+      // height: 160,
+      // width: double.infinity,
+      padding: EdgeInsets.all(16.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            width: 80.0,
+            height: 130.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(poster)),
+            ),
+          ),
+          SizedBox(width: 16.0),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          title,
+                          style: Theme.of(context).textTheme.subtitle1.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                        SizedBox(
+                          height: 12.0,
+                        ),
+                        Text(
+                          publishedDate,
+                          style: Theme.of(context).textTheme.subtitle2.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFBBBBBB)),
+                        ),
+                      ],
+                    ),
+                    Icon(
+                      Icons.bookmark_border,
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      size: 20.0,
+                      color: Colors.yellow[600],
+                    ),
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    Text(
+                      '$rating',
+                      style: Theme.of(context).textTheme.subtitle2.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                    Spacer(),
+                    Text(
+                      '\$$price',
+                      style: Theme.of(context).textTheme.subtitle2.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
