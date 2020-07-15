@@ -5,11 +5,11 @@ class DetailCard extends StatelessWidget {
   final double price, rating;
   const DetailCard(
       {Key key,
-      this.title,
-      this.poster,
-      this.price,
-      this.rating,
-      this.publishedDate})
+      @required this.title,
+      @required this.poster,
+      @required this.price,
+      @required this.rating,
+      @required this.publishedDate})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
