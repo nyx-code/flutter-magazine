@@ -60,7 +60,7 @@ class CustomTabBarView extends StatelessWidget {
                 },
                 itemCount: popular.length,
                 separatorBuilder: (context, index) => Divider(
-                  color: Colors.grey[400],
+                  color: Colors.grey[300],
                   indent: 30.0,
                   endIndent: 30.0,
                   thickness: 1.0,

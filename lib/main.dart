@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_magazine/screens/HomeScreen.dart';
 
 void main() {
@@ -25,13 +26,17 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white, statusBarBrightness: Brightness.light));
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Magazine',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: Stack(
           children: <Widget>[
             listScreens[tabIndex],
@@ -90,7 +95,6 @@ class _MainAppState extends State<MainApp> {
             ),
           ],
         ),
-        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }

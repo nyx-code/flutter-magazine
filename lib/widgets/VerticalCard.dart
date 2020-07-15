@@ -21,7 +21,18 @@ class VerticalCard extends StatelessWidget {
             width: 150.0,
             height: 200.0,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(poster)),
+              borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(
+                image: AssetImage(poster),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 2,
+                  blurRadius: 20,
+                  offset: Offset(0, 15), // changes position of shadow
+                ),
+              ],
             ),
           ),
           SizedBox(height: 16.0),
