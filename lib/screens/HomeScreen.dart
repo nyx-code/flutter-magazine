@@ -26,6 +26,8 @@ class HomeScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => VerticalCard(
+                          onPress: () => Navigator.of(context)
+                              .pushNamed("/details", arguments: data[index]),
                           poster: data[index]["poster"],
                           title: data[index]['title'],
                           publishedDate: data[index]['publishedDate'],

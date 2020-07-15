@@ -51,6 +51,8 @@ class CustomTabBarView extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (ctx, index) {
                   return DetailCard(
+                    onPress: () => Navigator.of(context)
+                        .pushNamed("/details", arguments: popular[index]),
                     poster: popular[index]['poster'],
                     price: popular[index]['price'],
                     publishedDate: popular[index]['publishedDate'],
@@ -70,6 +72,8 @@ class CustomTabBarView extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (ctx, index) {
                   return DetailCard(
+                    onPress: () => Navigator.of(context)
+                        .pushNamed("/details", arguments: newest[index]),
                     poster: newest[index]['poster'],
                     price: newest[index]['price'],
                     publishedDate: newest[index]['publishedDate'],

@@ -8,6 +8,8 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: Colors.white, statusBarBrightness: Brightness.dark));
+    final Map data = ModalRoute.of(context).settings.arguments;
+    print(data);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -23,8 +25,7 @@ class DetailScreen extends StatelessWidget {
                     borderRadius:
                         BorderRadius.vertical(bottom: Radius.circular(35.0)),
                     image: DecorationImage(
-                        image: AssetImage("assets/posters/poster8.gif"),
-                        fit: BoxFit.cover),
+                        image: AssetImage(data['poster']), fit: BoxFit.cover),
                   ),
                 ),
                 Container(
@@ -47,21 +48,24 @@ class DetailScreen extends StatelessWidget {
                 Positioned(
                   top: 50,
                   left: 20,
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.keyboard_backspace,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 8.0,
-                      ),
-                      Text(
-                        "Back",
-                        style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      )
-                    ],
+                  child: InkWell(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.keyboard_backspace,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 8.0,
+                        ),
+                        Text(
+                          "Back",
+                          style: Theme.of(context).textTheme.subtitle1.copyWith(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Positioned(
@@ -93,7 +97,7 @@ class DetailScreen extends StatelessWidget {
               height: 32.0,
             ),
             Text(
-              "April 3, 2007",
+              data['publishedDate'],
               style: Theme.of(context).textTheme.subtitle2.copyWith(
                   color: Colors.grey[400], fontWeight: FontWeight.w600),
             ),
@@ -101,7 +105,7 @@ class DetailScreen extends StatelessWidget {
               height: 16.0,
             ),
             Text(
-              "The New Yorker",
+              data['title'],
               style: Theme.of(context)
                   .textTheme
                   .headline5
@@ -144,7 +148,7 @@ class DetailScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("\$ 10.99",
+                      Text("\$ ${data['price']}",
                           style: Theme.of(context)
                               .textTheme
                               .headline6
