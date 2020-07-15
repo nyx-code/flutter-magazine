@@ -21,22 +21,25 @@ class VerticalCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              width: 150.0,
-              height: 200.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: AssetImage(poster),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 20,
-                    offset: Offset(0, 15), // changes position of shadow
+            Hero(
+              tag: poster,
+              child: Container(
+                width: 150.0,
+                height: 200.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                    image: AssetImage(poster),
                   ),
-                ],
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 20,
+                      offset: Offset(0, 15), // changes position of shadow
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 16.0),

@@ -18,14 +18,17 @@ class DetailScreen extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 1.7,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.vertical(bottom: Radius.circular(35.0)),
-                    image: DecorationImage(
-                        image: AssetImage(data['poster']), fit: BoxFit.cover),
+                Hero(
+                  tag: data['poster'],
+                  child: Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height / 1.7,
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.vertical(bottom: Radius.circular(35.0)),
+                      image: DecorationImage(
+                          image: AssetImage(data['poster']), fit: BoxFit.cover),
+                    ),
                   ),
                 ),
                 Container(

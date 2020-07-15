@@ -25,21 +25,24 @@ class DetailCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: 80.0,
-              height: 100.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                image: DecorationImage(
-                    image: AssetImage(poster), fit: BoxFit.cover),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 20,
-                    offset: Offset(0, 20), // changes position of shadow
-                  ),
-                ],
+            Hero(
+              tag: poster,
+              child: Container(
+                width: 80.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  image: DecorationImage(
+                      image: AssetImage(poster), fit: BoxFit.cover),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 20,
+                      offset: Offset(0, 20), // changes position of shadow
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(width: 16.0),
